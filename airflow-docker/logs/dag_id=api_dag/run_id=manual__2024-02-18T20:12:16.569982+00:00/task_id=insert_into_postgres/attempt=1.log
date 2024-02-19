@@ -1,0 +1,31 @@
+[2024-02-18T20:12:21.079+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: api_dag.insert_into_postgres manual__2024-02-18T20:12:16.569982+00:00 [queued]>
+[2024-02-18T20:12:21.084+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: api_dag.insert_into_postgres manual__2024-02-18T20:12:16.569982+00:00 [queued]>
+[2024-02-18T20:12:21.085+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2024-02-18T20:12:21.092+0000] {taskinstance.py:2191} INFO - Executing <Task(PostgresOperator): insert_into_postgres> on 2024-02-18 20:12:16.569982+00:00
+[2024-02-18T20:12:21.096+0000] {standard_task_runner.py:60} INFO - Started process 4493 to run task
+[2024-02-18T20:12:21.098+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'api_dag', 'insert_into_postgres', 'manual__2024-02-18T20:12:16.569982+00:00', '--job-id', '91', '--raw', '--subdir', 'DAGS_FOLDER/api_dag.py', '--cfg-path', '/tmp/tmpt39951w4']
+[2024-02-18T20:12:21.099+0000] {standard_task_runner.py:88} INFO - Job 91: Subtask insert_into_postgres
+[2024-02-18T20:12:21.128+0000] {task_command.py:423} INFO - Running <TaskInstance: api_dag.insert_into_postgres manual__2024-02-18T20:12:16.569982+00:00 [running]> on host 482b276ff4ae
+[2024-02-18T20:12:21.176+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='api_dag' AIRFLOW_CTX_TASK_ID='insert_into_postgres' AIRFLOW_CTX_EXECUTION_DATE='2024-02-18T20:12:16.569982+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-02-18T20:12:16.569982+00:00'
+[2024-02-18T20:12:21.177+0000] {sql.py:276} INFO - Executing: INSERT INTO automezzo (id, telaio) VALUES (%(id)s AND %(telaio)s);
+[2024-02-18T20:12:21.182+0000] {base.py:83} INFO - Using connection ID 'postgres_conn' for task execution.
+[2024-02-18T20:12:21.186+0000] {base.py:83} INFO - Using connection ID 'postgres_conn' for task execution.
+[2024-02-18T20:12:21.448+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/operators/sql.py", line 282, in execute
+    output = hook.run(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py", line 391, in run
+    with closing(self.get_conn()) as conn:
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/postgres/hooks/postgres.py", line 158, in get_conn
+    self.conn = psycopg2.connect(**conn_args)
+  File "/home/airflow/.local/lib/python3.8/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "dumbo.db.elephantsql.com" to address: No address associated with hostname
+
+[2024-02-18T20:12:21.461+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=api_dag, task_id=insert_into_postgres, execution_date=20240218T201216, start_date=20240218T201221, end_date=20240218T201221
+[2024-02-18T20:12:21.472+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 91 for task insert_into_postgres (could not translate host name "dumbo.db.elephantsql.com" to address: No address associated with hostname
+; 4493)
+[2024-02-18T20:12:21.513+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-18T20:12:21.535+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

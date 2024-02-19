@@ -1,0 +1,34 @@
+[2024-02-18T19:41:46.599+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: api_dag.insert_into_postgres manual__2024-02-18T19:41:38.290538+00:00 [queued]>
+[2024-02-18T19:41:46.608+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: api_dag.insert_into_postgres manual__2024-02-18T19:41:38.290538+00:00 [queued]>
+[2024-02-18T19:41:46.608+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2024-02-18T19:41:46.620+0000] {taskinstance.py:2191} INFO - Executing <Task(PostgresOperator): insert_into_postgres> on 2024-02-18 19:41:38.290538+00:00
+[2024-02-18T19:41:46.626+0000] {standard_task_runner.py:60} INFO - Started process 3946 to run task
+[2024-02-18T19:41:46.630+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'api_dag', 'insert_into_postgres', 'manual__2024-02-18T19:41:38.290538+00:00', '--job-id', '62', '--raw', '--subdir', 'DAGS_FOLDER/api_dag.py', '--cfg-path', '/tmp/tmpfieqcy4k']
+[2024-02-18T19:41:46.631+0000] {standard_task_runner.py:88} INFO - Job 62: Subtask insert_into_postgres
+[2024-02-18T19:41:46.670+0000] {task_command.py:423} INFO - Running <TaskInstance: api_dag.insert_into_postgres manual__2024-02-18T19:41:38.290538+00:00 [running]> on host 482b276ff4ae
+[2024-02-18T19:41:46.745+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='api_dag' AIRFLOW_CTX_TASK_ID='insert_into_postgres' AIRFLOW_CTX_EXECUTION_DATE='2024-02-18T19:41:38.290538+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-02-18T19:41:38.290538+00:00'
+[2024-02-18T19:41:46.746+0000] {sql.py:276} INFO - Executing: INSERT INTO automezzo (id) VALUES (load_data);
+[2024-02-18T19:41:46.758+0000] {base.py:83} INFO - Using connection ID 'postgres_conn' for task execution.
+[2024-02-18T19:41:46.766+0000] {base.py:83} INFO - Using connection ID 'postgres_conn' for task execution.
+[2024-02-18T19:41:47.806+0000] {sql.py:450} INFO - Running statement: INSERT INTO automezzo (id) VALUES (load_data);, parameters: None
+[2024-02-18T19:41:47.962+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/operators/sql.py", line 282, in execute
+    output = hook.run(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py", line 398, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py", line 455, in _run_command
+    cur.execute(sql_statement)
+psycopg2.errors.UndefinedColumn: column "load_data" does not exist
+LINE 1: INSERT INTO automezzo (id) VALUES (load_data);
+                                           ^
+
+[2024-02-18T19:41:47.970+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=api_dag, task_id=insert_into_postgres, execution_date=20240218T194138, start_date=20240218T194146, end_date=20240218T194147
+[2024-02-18T19:41:47.982+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 62 for task insert_into_postgres (column "load_data" does not exist
+LINE 1: INSERT INTO automezzo (id) VALUES (load_data);
+                                           ^
+; 3946)
+[2024-02-18T19:41:48.011+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-18T19:41:48.038+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

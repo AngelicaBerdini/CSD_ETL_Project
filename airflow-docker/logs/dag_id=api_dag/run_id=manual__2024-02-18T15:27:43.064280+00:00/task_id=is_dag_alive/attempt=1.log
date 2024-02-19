@@ -1,0 +1,45 @@
+[2024-02-18T15:27:44.529+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: api_dag.is_dag_alive manual__2024-02-18T15:27:43.064280+00:00 [queued]>
+[2024-02-18T15:27:44.534+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: api_dag.is_dag_alive manual__2024-02-18T15:27:43.064280+00:00 [queued]>
+[2024-02-18T15:27:44.534+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2024-02-18T15:27:44.542+0000] {taskinstance.py:2191} INFO - Executing <Task(HttpSensor): is_dag_alive> on 2024-02-18 15:27:43.064280+00:00
+[2024-02-18T15:27:44.545+0000] {standard_task_runner.py:60} INFO - Started process 747 to run task
+[2024-02-18T15:27:44.548+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'api_dag', 'is_dag_alive', 'manual__2024-02-18T15:27:43.064280+00:00', '--job-id', '7', '--raw', '--subdir', 'DAGS_FOLDER/api_dag.py', '--cfg-path', '/tmp/tmph7onhd69']
+[2024-02-18T15:27:44.549+0000] {standard_task_runner.py:88} INFO - Job 7: Subtask is_dag_alive
+[2024-02-18T15:27:44.578+0000] {task_command.py:423} INFO - Running <TaskInstance: api_dag.is_dag_alive manual__2024-02-18T15:27:43.064280+00:00 [running]> on host 482b276ff4ae
+[2024-02-18T15:27:44.629+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='api_dag' AIRFLOW_CTX_TASK_ID='is_dag_alive' AIRFLOW_CTX_EXECUTION_DATE='2024-02-18T15:27:43.064280+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-02-18T15:27:43.064280+00:00'
+[2024-02-18T15:27:44.629+0000] {http.py:130} INFO - Poking: /owner/flotta
+[2024-02-18T15:27:44.635+0000] {base.py:83} INFO - Using connection ID 'first_conn' for task execution.
+[2024-02-18T15:27:44.841+0000] {http.py:178} ERROR - HTTP error: Unauthorized
+[2024-02-18T15:27:44.841+0000] {http.py:179} ERROR - "Non autorizzato"
+[2024-02-18T15:27:44.847+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/http/hooks/http.py", line 176, in check_response
+    response.raise_for_status()
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 401 Client Error: Unauthorized for url: https://api.recorditalia.net/owner/flotta
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/sensors/base.py", line 265, in execute
+    raise e
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/sensors/base.py", line 247, in execute
+    poke_return = self.poke(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/http/sensors/http.py", line 148, in poke
+    raise exc
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/http/sensors/http.py", line 132, in poke
+    response = hook.run(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/http/hooks/http.py", line 166, in run
+    return self.run_and_check(session, prepped_request, extra_options)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/http/hooks/http.py", line 217, in run_and_check
+    self.check_response(response)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/http/hooks/http.py", line 180, in check_response
+    raise AirflowException(str(response.status_code) + ":" + response.reason)
+airflow.exceptions.AirflowException: 401:Unauthorized
+[2024-02-18T15:27:44.849+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=api_dag, task_id=is_dag_alive, execution_date=20240218T152743, start_date=20240218T152744, end_date=20240218T152744
+[2024-02-18T15:27:44.857+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 7 for task is_dag_alive (401:Unauthorized; 747)
+[2024-02-18T15:27:44.881+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-18T15:27:44.899+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,24 @@
+[2024-02-18T16:18:41.924+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: api_dag.transform_data manual__2024-02-18T16:18:38.743715+00:00 [queued]>
+[2024-02-18T16:18:41.929+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: api_dag.transform_data manual__2024-02-18T16:18:38.743715+00:00 [queued]>
+[2024-02-18T16:18:41.930+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2024-02-18T16:18:41.939+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): transform_data> on 2024-02-18 16:18:38.743715+00:00
+[2024-02-18T16:18:41.943+0000] {standard_task_runner.py:60} INFO - Started process 1551 to run task
+[2024-02-18T16:18:41.945+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'api_dag', 'transform_data', 'manual__2024-02-18T16:18:38.743715+00:00', '--job-id', '15', '--raw', '--subdir', 'DAGS_FOLDER/api_dag.py', '--cfg-path', '/tmp/tmp2w21x38d']
+[2024-02-18T16:18:41.946+0000] {standard_task_runner.py:88} INFO - Job 15: Subtask transform_data
+[2024-02-18T16:18:41.973+0000] {task_command.py:423} INFO - Running <TaskInstance: api_dag.transform_data manual__2024-02-18T16:18:38.743715+00:00 [running]> on host 482b276ff4ae
+[2024-02-18T16:18:42.021+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='api_dag' AIRFLOW_CTX_TASK_ID='transform_data' AIRFLOW_CTX_EXECUTION_DATE='2024-02-18T16:18:38.743715+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-02-18T16:18:38.743715+00:00'
+[2024-02-18T16:18:42.022+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/api_dag.py", line 10, in transform_data
+    ti = kwargs[ti]
+UnboundLocalError: local variable 'ti' referenced before assignment
+[2024-02-18T16:18:42.027+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=api_dag, task_id=transform_data, execution_date=20240218T161838, start_date=20240218T161841, end_date=20240218T161842
+[2024-02-18T16:18:42.035+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 15 for task transform_data (local variable 'ti' referenced before assignment; 1551)
+[2024-02-18T16:18:42.077+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-18T16:18:42.095+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

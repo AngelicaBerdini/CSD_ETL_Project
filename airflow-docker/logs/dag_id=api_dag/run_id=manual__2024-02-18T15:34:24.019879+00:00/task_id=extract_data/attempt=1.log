@@ -1,0 +1,16 @@
+[2024-02-18T15:39:51.093+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: api_dag.extract_data manual__2024-02-18T15:34:24.019879+00:00 [queued]>
+[2024-02-18T15:39:51.108+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: api_dag.extract_data manual__2024-02-18T15:34:24.019879+00:00 [queued]>
+[2024-02-18T15:39:51.109+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2024-02-18T15:39:51.129+0000] {taskinstance.py:2191} INFO - Executing <Task(SimpleHttpOperator): extract_data> on 2024-02-18 15:34:24.019879+00:00
+[2024-02-18T15:39:51.136+0000] {standard_task_runner.py:60} INFO - Started process 950 to run task
+[2024-02-18T15:39:51.140+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'api_dag', 'extract_data', 'manual__2024-02-18T15:34:24.019879+00:00', '--job-id', '10', '--raw', '--subdir', 'DAGS_FOLDER/api_dag.py', '--cfg-path', '/tmp/tmp737el42q']
+[2024-02-18T15:39:51.142+0000] {standard_task_runner.py:88} INFO - Job 10: Subtask extract_data
+[2024-02-18T15:39:51.196+0000] {task_command.py:423} INFO - Running <TaskInstance: api_dag.extract_data manual__2024-02-18T15:34:24.019879+00:00 [running]> on host 482b276ff4ae
+[2024-02-18T15:39:51.275+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='api_dag' AIRFLOW_CTX_TASK_ID='extract_data' AIRFLOW_CTX_EXECUTION_DATE='2024-02-18T15:34:24.019879+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-02-18T15:34:24.019879+00:00'
+[2024-02-18T15:39:51.276+0000] {http.py:169} INFO - Calling HTTP method
+[2024-02-18T15:39:51.284+0000] {base.py:83} INFO - Using connection ID 'first_conn' for task execution.
+[2024-02-18T15:39:51.292+0000] {base.py:83} INFO - Using connection ID 'first_conn' for task execution.
+[2024-02-18T15:39:51.778+0000] {http.py:208} INFO - [{"id":13212,"username":"cosmarisrl","isActia":false,"flotta":[{"id":13127,"nome":"COSMARI SRL","descrizione":null,"defaultIcon":"&#xe908;","deleted_at":null,"nickname":"COSMARI SRL","principale":0}]}]
+[2024-02-18T15:39:51.799+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=api_dag, task_id=extract_data, execution_date=20240218T153424, start_date=20240218T153951, end_date=20240218T153951
+[2024-02-18T15:39:51.835+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-02-18T15:39:51.846+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,28 @@
+[2024-02-18T20:09:47.042+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: api_dag.insert_into_postgres manual__2024-02-18T20:09:42.183123+00:00 [queued]>
+[2024-02-18T20:09:47.049+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: api_dag.insert_into_postgres manual__2024-02-18T20:09:42.183123+00:00 [queued]>
+[2024-02-18T20:09:47.049+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2024-02-18T20:09:47.060+0000] {taskinstance.py:2191} INFO - Executing <Task(PostgresOperator): insert_into_postgres> on 2024-02-18 20:09:42.183123+00:00
+[2024-02-18T20:09:47.066+0000] {standard_task_runner.py:60} INFO - Started process 4444 to run task
+[2024-02-18T20:09:47.069+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'api_dag', 'insert_into_postgres', 'manual__2024-02-18T20:09:42.183123+00:00', '--job-id', '88', '--raw', '--subdir', 'DAGS_FOLDER/api_dag.py', '--cfg-path', '/tmp/tmpj1vj7jnr']
+[2024-02-18T20:09:47.070+0000] {standard_task_runner.py:88} INFO - Job 88: Subtask insert_into_postgres
+[2024-02-18T20:09:47.110+0000] {task_command.py:423} INFO - Running <TaskInstance: api_dag.insert_into_postgres manual__2024-02-18T20:09:42.183123+00:00 [running]> on host 482b276ff4ae
+[2024-02-18T20:09:47.183+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='api_dag' AIRFLOW_CTX_TASK_ID='insert_into_postgres' AIRFLOW_CTX_EXECUTION_DATE='2024-02-18T20:09:42.183123+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-02-18T20:09:42.183123+00:00'
+[2024-02-18T20:09:47.185+0000] {sql.py:276} INFO - Executing: INSERT INTO automezzo (id, telaio) VALUES (%(id)d AND %(telaio)d);
+[2024-02-18T20:09:47.192+0000] {base.py:83} INFO - Using connection ID 'postgres_conn' for task execution.
+[2024-02-18T20:09:47.199+0000] {base.py:83} INFO - Using connection ID 'postgres_conn' for task execution.
+[2024-02-18T20:09:48.286+0000] {sql.py:450} INFO - Running statement: INSERT INTO automezzo (id, telaio) VALUES (%(id)d AND %(telaio)d);, parameters: {'id': '45499', 'telaio': '233015'}
+[2024-02-18T20:09:48.287+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/operators/sql.py", line 282, in execute
+    output = hook.run(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py", line 398, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py", line 453, in _run_command
+    cur.execute(sql_statement, parameters)
+ValueError: unsupported format character 'd' (0x64) at index 48
+[2024-02-18T20:09:48.292+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=api_dag, task_id=insert_into_postgres, execution_date=20240218T200942, start_date=20240218T200947, end_date=20240218T200948
+[2024-02-18T20:09:48.300+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 88 for task insert_into_postgres (unsupported format character 'd' (0x64) at index 48; 4444)
+[2024-02-18T20:09:48.329+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-18T20:09:48.340+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

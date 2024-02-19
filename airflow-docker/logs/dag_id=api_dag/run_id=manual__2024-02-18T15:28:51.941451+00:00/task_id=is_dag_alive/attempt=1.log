@@ -1,0 +1,782 @@
+[2024-02-18T15:28:53.177+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: api_dag.is_dag_alive manual__2024-02-18T15:28:51.941451+00:00 [queued]>
+[2024-02-18T15:28:53.182+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: api_dag.is_dag_alive manual__2024-02-18T15:28:51.941451+00:00 [queued]>
+[2024-02-18T15:28:53.182+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2024-02-18T15:28:53.191+0000] {taskinstance.py:2191} INFO - Executing <Task(HttpSensor): is_dag_alive> on 2024-02-18 15:28:51.941451+00:00
+[2024-02-18T15:28:53.194+0000] {standard_task_runner.py:60} INFO - Started process 774 to run task
+[2024-02-18T15:28:53.196+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'api_dag', 'is_dag_alive', 'manual__2024-02-18T15:28:51.941451+00:00', '--job-id', '8', '--raw', '--subdir', 'DAGS_FOLDER/api_dag.py', '--cfg-path', '/tmp/tmp2o272z_l']
+[2024-02-18T15:28:53.197+0000] {standard_task_runner.py:88} INFO - Job 8: Subtask is_dag_alive
+[2024-02-18T15:28:53.229+0000] {task_command.py:423} INFO - Running <TaskInstance: api_dag.is_dag_alive manual__2024-02-18T15:28:51.941451+00:00 [running]> on host 482b276ff4ae
+[2024-02-18T15:28:53.304+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='api_dag' AIRFLOW_CTX_TASK_ID='is_dag_alive' AIRFLOW_CTX_EXECUTION_DATE='2024-02-18T15:28:51.941451+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-02-18T15:28:51.941451+00:00'
+[2024-02-18T15:28:53.305+0000] {http.py:130} INFO - Poking: /owner/flottaEtyoDBgNKSWMfKiQXeGioRP7L
+[2024-02-18T15:28:53.312+0000] {base.py:83} INFO - Using connection ID 'first_conn' for task execution.
+[2024-02-18T15:28:53.498+0000] {http.py:178} ERROR - HTTP error: Not Found
+[2024-02-18T15:28:53.498+0000] {http.py:179} ERROR - <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Not Found</title>
+
+        <!-- Fonts -->
+        <link rel="dns-prefetch" href="//fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+        <!-- Styles -->
+        <style>
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Nunito', sans-serif;
+                font-weight: 100;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .full-height {
+                height: 100vh;
+            }
+
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .position-ref {
+                position: relative;
+            }
+
+            .code {
+                border-right: 2px solid;
+                font-size: 26px;
+                padding: 0 15px 0 15px;
+                text-align: center;
+            }
+
+            .message {
+                font-size: 18px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="flex-center position-ref full-height">
+            <div class="code">
+                404            </div>
+
+            <div class="message" style="padding: 10px;">
+                Not Found            </div>
+        </div>
+    </body>
+</html>
+
+[2024-02-18T15:29:53.560+0000] {http.py:130} INFO - Poking: /owner/flottaEtyoDBgNKSWMfKiQXeGioRP7L
+[2024-02-18T15:29:53.581+0000] {base.py:83} INFO - Using connection ID 'first_conn' for task execution.
+[2024-02-18T15:29:53.774+0000] {http.py:178} ERROR - HTTP error: Not Found
+[2024-02-18T15:29:53.775+0000] {http.py:179} ERROR - <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Not Found</title>
+
+        <!-- Fonts -->
+        <link rel="dns-prefetch" href="//fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+        <!-- Styles -->
+        <style>
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Nunito', sans-serif;
+                font-weight: 100;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .full-height {
+                height: 100vh;
+            }
+
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .position-ref {
+                position: relative;
+            }
+
+            .code {
+                border-right: 2px solid;
+                font-size: 26px;
+                padding: 0 15px 0 15px;
+                text-align: center;
+            }
+
+            .message {
+                font-size: 18px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="flex-center position-ref full-height">
+            <div class="code">
+                404            </div>
+
+            <div class="message" style="padding: 10px;">
+                Not Found            </div>
+        </div>
+    </body>
+</html>
+
+[2024-02-18T15:30:53.841+0000] {http.py:130} INFO - Poking: /owner/flottaEtyoDBgNKSWMfKiQXeGioRP7L
+[2024-02-18T15:30:53.848+0000] {base.py:83} INFO - Using connection ID 'first_conn' for task execution.
+[2024-02-18T15:30:54.036+0000] {http.py:178} ERROR - HTTP error: Not Found
+[2024-02-18T15:30:54.037+0000] {http.py:179} ERROR - <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Not Found</title>
+
+        <!-- Fonts -->
+        <link rel="dns-prefetch" href="//fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+        <!-- Styles -->
+        <style>
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Nunito', sans-serif;
+                font-weight: 100;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .full-height {
+                height: 100vh;
+            }
+
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .position-ref {
+                position: relative;
+            }
+
+            .code {
+                border-right: 2px solid;
+                font-size: 26px;
+                padding: 0 15px 0 15px;
+                text-align: center;
+            }
+
+            .message {
+                font-size: 18px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="flex-center position-ref full-height">
+            <div class="code">
+                404            </div>
+
+            <div class="message" style="padding: 10px;">
+                Not Found            </div>
+        </div>
+    </body>
+</html>
+
+[2024-02-18T15:31:54.087+0000] {http.py:130} INFO - Poking: /owner/flottaEtyoDBgNKSWMfKiQXeGioRP7L
+[2024-02-18T15:31:54.100+0000] {base.py:83} INFO - Using connection ID 'first_conn' for task execution.
+[2024-02-18T15:31:54.291+0000] {http.py:178} ERROR - HTTP error: Not Found
+[2024-02-18T15:31:54.292+0000] {http.py:179} ERROR - <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Not Found</title>
+
+        <!-- Fonts -->
+        <link rel="dns-prefetch" href="//fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+        <!-- Styles -->
+        <style>
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Nunito', sans-serif;
+                font-weight: 100;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .full-height {
+                height: 100vh;
+            }
+
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .position-ref {
+                position: relative;
+            }
+
+            .code {
+                border-right: 2px solid;
+                font-size: 26px;
+                padding: 0 15px 0 15px;
+                text-align: center;
+            }
+
+            .message {
+                font-size: 18px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="flex-center position-ref full-height">
+            <div class="code">
+                404            </div>
+
+            <div class="message" style="padding: 10px;">
+                Not Found            </div>
+        </div>
+    </body>
+</html>
+
+[2024-02-18T15:32:54.312+0000] {http.py:130} INFO - Poking: /owner/flottaEtyoDBgNKSWMfKiQXeGioRP7L
+[2024-02-18T15:32:54.330+0000] {base.py:83} INFO - Using connection ID 'first_conn' for task execution.
+[2024-02-18T15:32:54.531+0000] {http.py:178} ERROR - HTTP error: Not Found
+[2024-02-18T15:32:54.532+0000] {http.py:179} ERROR - <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Not Found</title>
+
+        <!-- Fonts -->
+        <link rel="dns-prefetch" href="//fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+        <!-- Styles -->
+        <style>
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Nunito', sans-serif;
+                font-weight: 100;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .full-height {
+                height: 100vh;
+            }
+
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .position-ref {
+                position: relative;
+            }
+
+            .code {
+                border-right: 2px solid;
+                font-size: 26px;
+                padding: 0 15px 0 15px;
+                text-align: center;
+            }
+
+            .message {
+                font-size: 18px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="flex-center position-ref full-height">
+            <div class="code">
+                404            </div>
+
+            <div class="message" style="padding: 10px;">
+                Not Found            </div>
+        </div>
+    </body>
+</html>
+
+[2024-02-18T15:33:54.593+0000] {http.py:130} INFO - Poking: /owner/flottaEtyoDBgNKSWMfKiQXeGioRP7L
+[2024-02-18T15:33:54.609+0000] {base.py:83} INFO - Using connection ID 'first_conn' for task execution.
+[2024-02-18T15:33:54.799+0000] {http.py:178} ERROR - HTTP error: Not Found
+[2024-02-18T15:33:54.800+0000] {http.py:179} ERROR - <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Not Found</title>
+
+        <!-- Fonts -->
+        <link rel="dns-prefetch" href="//fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+        <!-- Styles -->
+        <style>
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Nunito', sans-serif;
+                font-weight: 100;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .full-height {
+                height: 100vh;
+            }
+
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .position-ref {
+                position: relative;
+            }
+
+            .code {
+                border-right: 2px solid;
+                font-size: 26px;
+                padding: 0 15px 0 15px;
+                text-align: center;
+            }
+
+            .message {
+                font-size: 18px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="flex-center position-ref full-height">
+            <div class="code">
+                404            </div>
+
+            <div class="message" style="padding: 10px;">
+                Not Found            </div>
+        </div>
+    </body>
+</html>
+
+[2024-02-18T15:34:54.864+0000] {http.py:130} INFO - Poking: /owner/flottaEtyoDBgNKSWMfKiQXeGioRP7L
+[2024-02-18T15:34:54.879+0000] {base.py:83} INFO - Using connection ID 'first_conn' for task execution.
+[2024-02-18T15:34:55.070+0000] {http.py:178} ERROR - HTTP error: Not Found
+[2024-02-18T15:34:55.071+0000] {http.py:179} ERROR - <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Not Found</title>
+
+        <!-- Fonts -->
+        <link rel="dns-prefetch" href="//fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+        <!-- Styles -->
+        <style>
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Nunito', sans-serif;
+                font-weight: 100;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .full-height {
+                height: 100vh;
+            }
+
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .position-ref {
+                position: relative;
+            }
+
+            .code {
+                border-right: 2px solid;
+                font-size: 26px;
+                padding: 0 15px 0 15px;
+                text-align: center;
+            }
+
+            .message {
+                font-size: 18px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="flex-center position-ref full-height">
+            <div class="code">
+                404            </div>
+
+            <div class="message" style="padding: 10px;">
+                Not Found            </div>
+        </div>
+    </body>
+</html>
+
+[2024-02-18T15:35:55.104+0000] {http.py:130} INFO - Poking: /owner/flottaEtyoDBgNKSWMfKiQXeGioRP7L
+[2024-02-18T15:35:55.116+0000] {base.py:83} INFO - Using connection ID 'first_conn' for task execution.
+[2024-02-18T15:35:55.307+0000] {http.py:178} ERROR - HTTP error: Not Found
+[2024-02-18T15:35:55.307+0000] {http.py:179} ERROR - <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Not Found</title>
+
+        <!-- Fonts -->
+        <link rel="dns-prefetch" href="//fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+        <!-- Styles -->
+        <style>
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Nunito', sans-serif;
+                font-weight: 100;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .full-height {
+                height: 100vh;
+            }
+
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .position-ref {
+                position: relative;
+            }
+
+            .code {
+                border-right: 2px solid;
+                font-size: 26px;
+                padding: 0 15px 0 15px;
+                text-align: center;
+            }
+
+            .message {
+                font-size: 18px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="flex-center position-ref full-height">
+            <div class="code">
+                404            </div>
+
+            <div class="message" style="padding: 10px;">
+                Not Found            </div>
+        </div>
+    </body>
+</html>
+
+[2024-02-18T15:36:55.346+0000] {http.py:130} INFO - Poking: /owner/flottaEtyoDBgNKSWMfKiQXeGioRP7L
+[2024-02-18T15:36:55.361+0000] {base.py:83} INFO - Using connection ID 'first_conn' for task execution.
+[2024-02-18T15:36:55.551+0000] {http.py:178} ERROR - HTTP error: Not Found
+[2024-02-18T15:36:55.552+0000] {http.py:179} ERROR - <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Not Found</title>
+
+        <!-- Fonts -->
+        <link rel="dns-prefetch" href="//fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+        <!-- Styles -->
+        <style>
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Nunito', sans-serif;
+                font-weight: 100;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .full-height {
+                height: 100vh;
+            }
+
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .position-ref {
+                position: relative;
+            }
+
+            .code {
+                border-right: 2px solid;
+                font-size: 26px;
+                padding: 0 15px 0 15px;
+                text-align: center;
+            }
+
+            .message {
+                font-size: 18px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="flex-center position-ref full-height">
+            <div class="code">
+                404            </div>
+
+            <div class="message" style="padding: 10px;">
+                Not Found            </div>
+        </div>
+    </body>
+</html>
+
+[2024-02-18T15:37:55.563+0000] {http.py:130} INFO - Poking: /owner/flottaEtyoDBgNKSWMfKiQXeGioRP7L
+[2024-02-18T15:37:55.572+0000] {base.py:83} INFO - Using connection ID 'first_conn' for task execution.
+[2024-02-18T15:37:55.756+0000] {http.py:178} ERROR - HTTP error: Not Found
+[2024-02-18T15:37:55.757+0000] {http.py:179} ERROR - <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Not Found</title>
+
+        <!-- Fonts -->
+        <link rel="dns-prefetch" href="//fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+        <!-- Styles -->
+        <style>
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Nunito', sans-serif;
+                font-weight: 100;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .full-height {
+                height: 100vh;
+            }
+
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .position-ref {
+                position: relative;
+            }
+
+            .code {
+                border-right: 2px solid;
+                font-size: 26px;
+                padding: 0 15px 0 15px;
+                text-align: center;
+            }
+
+            .message {
+                font-size: 18px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="flex-center position-ref full-height">
+            <div class="code">
+                404            </div>
+
+            <div class="message" style="padding: 10px;">
+                Not Found            </div>
+        </div>
+    </body>
+</html>
+
+[2024-02-18T15:38:55.821+0000] {http.py:130} INFO - Poking: /owner/flottaEtyoDBgNKSWMfKiQXeGioRP7L
+[2024-02-18T15:38:55.835+0000] {base.py:83} INFO - Using connection ID 'first_conn' for task execution.
+[2024-02-18T15:38:56.017+0000] {http.py:178} ERROR - HTTP error: Not Found
+[2024-02-18T15:38:56.018+0000] {http.py:179} ERROR - <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Not Found</title>
+
+        <!-- Fonts -->
+        <link rel="dns-prefetch" href="//fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+        <!-- Styles -->
+        <style>
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Nunito', sans-serif;
+                font-weight: 100;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .full-height {
+                height: 100vh;
+            }
+
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .position-ref {
+                position: relative;
+            }
+
+            .code {
+                border-right: 2px solid;
+                font-size: 26px;
+                padding: 0 15px 0 15px;
+                text-align: center;
+            }
+
+            .message {
+                font-size: 18px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="flex-center position-ref full-height">
+            <div class="code">
+                404            </div>
+
+            <div class="message" style="padding: 10px;">
+                Not Found            </div>
+        </div>
+    </body>
+</html>
+
+[2024-02-18T15:39:56.053+0000] {http.py:130} INFO - Poking: /owner/flottaEtyoDBgNKSWMfKiQXeGioRP7L
+[2024-02-18T15:39:56.065+0000] {base.py:83} INFO - Using connection ID 'first_conn' for task execution.
+[2024-02-18T15:39:56.262+0000] {http.py:178} ERROR - HTTP error: Not Found
+[2024-02-18T15:39:56.263+0000] {http.py:179} ERROR - <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Not Found</title>
+
+        <!-- Fonts -->
+        <link rel="dns-prefetch" href="//fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+        <!-- Styles -->
+        <style>
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Nunito', sans-serif;
+                font-weight: 100;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .full-height {
+                height: 100vh;
+            }
+
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .position-ref {
+                position: relative;
+            }
+
+            .code {
+                border-right: 2px solid;
+                font-size: 26px;
+                padding: 0 15px 0 15px;
+                text-align: center;
+            }
+
+            .message {
+                font-size: 18px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="flex-center position-ref full-height">
+            <div class="code">
+                404            </div>
+
+            <div class="message" style="padding: 10px;">
+                Not Found            </div>
+        </div>
+    </body>
+</html>
+
+[2024-02-18T15:39:57.932+0000] {local_task_job_runner.py:302} WARNING - State of this instance has been externally set to removed. Terminating instance.
+[2024-02-18T15:39:57.935+0000] {process_utils.py:131} INFO - Sending 15 to group 774. PIDs of all processes in the group: [774]
+[2024-02-18T15:39:57.935+0000] {process_utils.py:86} INFO - Sending the signal 15 to group 774
+[2024-02-18T15:39:57.936+0000] {taskinstance.py:2450} ERROR - Received SIGTERM. Terminating subprocesses.
+[2024-02-18T15:39:57.962+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=774, status='terminated', exitcode=0, started='15:28:52') (774) terminated with exit code 0
