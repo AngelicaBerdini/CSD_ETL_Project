@@ -1,0 +1,26 @@
+[2024-02-24T09:58:37.777+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: api_dag.transform_load_data_task manual__2024-02-24T09:58:33.695623+00:00 [queued]>
+[2024-02-24T09:58:37.782+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: api_dag.transform_load_data_task manual__2024-02-24T09:58:33.695623+00:00 [queued]>
+[2024-02-24T09:58:37.782+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2024-02-24T09:58:37.790+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): transform_load_data_task> on 2024-02-24 09:58:33.695623+00:00
+[2024-02-24T09:58:37.795+0000] {standard_task_runner.py:60} INFO - Started process 341 to run task
+[2024-02-24T09:58:37.797+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'api_dag', 'transform_load_data_task', 'manual__2024-02-24T09:58:33.695623+00:00', '--job-id', '471', '--raw', '--subdir', 'DAGS_FOLDER/api_dag.py', '--cfg-path', '/tmp/tmpit9eiaz_']
+[2024-02-24T09:58:37.797+0000] {standard_task_runner.py:88} INFO - Job 471: Subtask transform_load_data_task
+[2024-02-24T09:58:37.826+0000] {task_command.py:423} INFO - Running <TaskInstance: api_dag.transform_load_data_task manual__2024-02-24T09:58:33.695623+00:00 [running]> on host 614a08523528
+[2024-02-24T09:58:37.875+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='api_dag' AIRFLOW_CTX_TASK_ID='transform_load_data_task' AIRFLOW_CTX_EXECUTION_DATE='2024-02-24T09:58:33.695623+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-02-24T09:58:33.695623+00:00'
+[2024-02-24T09:58:37.905+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/api_dag.py", line 31, in transform_data
+    transformed_data = [{'idMezzo': item.get('idMezzo', ''), 'km_totali': item.get('km_totali', '')} for item in all_data]
+  File "/opt/airflow/dags/api_dag.py", line 31, in <listcomp>
+    transformed_data = [{'idMezzo': item.get('idMezzo', ''), 'km_totali': item.get('km_totali', '')} for item in all_data]
+AttributeError: 'NoneType' object has no attribute 'get'
+[2024-02-24T09:58:37.910+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=api_dag, task_id=transform_load_data_task, execution_date=20240224T095833, start_date=20240224T095837, end_date=20240224T095837
+[2024-02-24T09:58:37.917+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 471 for task transform_load_data_task ('NoneType' object has no attribute 'get'; 341)
+[2024-02-24T09:58:37.929+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-24T09:58:37.940+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

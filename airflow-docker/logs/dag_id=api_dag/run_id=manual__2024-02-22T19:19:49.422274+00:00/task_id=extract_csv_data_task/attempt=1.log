@@ -1,0 +1,42 @@
+[2024-02-22T19:19:52.925+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: api_dag.extract_csv_data_task manual__2024-02-22T19:19:49.422274+00:00 [queued]>
+[2024-02-22T19:19:52.934+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: api_dag.extract_csv_data_task manual__2024-02-22T19:19:49.422274+00:00 [queued]>
+[2024-02-22T19:19:52.935+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2024-02-22T19:19:52.949+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): extract_csv_data_task> on 2024-02-22 19:19:49.422274+00:00
+[2024-02-22T19:19:52.955+0000] {standard_task_runner.py:60} INFO - Started process 2160 to run task
+[2024-02-22T19:19:52.957+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'api_dag', 'extract_csv_data_task', 'manual__2024-02-22T19:19:49.422274+00:00', '--job-id', '311', '--raw', '--subdir', 'DAGS_FOLDER/api_dag.py', '--cfg-path', '/tmp/tmp04296l04']
+[2024-02-22T19:19:52.959+0000] {standard_task_runner.py:88} INFO - Job 311: Subtask extract_csv_data_task
+[2024-02-22T19:19:53.002+0000] {task_command.py:423} INFO - Running <TaskInstance: api_dag.extract_csv_data_task manual__2024-02-22T19:19:49.422274+00:00 [running]> on host 614a08523528
+[2024-02-22T19:19:53.067+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='api_dag' AIRFLOW_CTX_TASK_ID='extract_csv_data_task' AIRFLOW_CTX_EXECUTION_DATE='2024-02-22T19:19:49.422274+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-02-22T19:19:49.422274+00:00'
+[2024-02-22T19:19:53.071+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "pandas/_libs/parsers.pyx", line 1131, in pandas._libs.parsers.TextReader._convert_tokens
+TypeError: Cannot cast array data from dtype('O') to dtype('int64') according to the rule 'safe'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/api_dag.py", line 16, in extract_csv_data
+    csv_data = pd.read_csv(csv_path_file,  dtype={'Mezzo': int, 'KmTotali': int})
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 912, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 583, in _read
+    return parser.read(nrows)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 1704, in read
+    ) = self._engine.read(  # type: ignore[attr-defined]
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parsers/c_parser_wrapper.py", line 234, in read
+    chunks = self._reader.read_low_memory(nrows)
+  File "pandas/_libs/parsers.pyx", line 814, in pandas._libs.parsers.TextReader.read_low_memory
+  File "pandas/_libs/parsers.pyx", line 891, in pandas._libs.parsers.TextReader._read_rows
+  File "pandas/_libs/parsers.pyx", line 1036, in pandas._libs.parsers.TextReader._convert_column_data
+  File "pandas/_libs/parsers.pyx", line 1137, in pandas._libs.parsers.TextReader._convert_tokens
+ValueError: invalid literal for int() with base 10: '968,6 km'
+[2024-02-22T19:19:53.078+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=api_dag, task_id=extract_csv_data_task, execution_date=20240222T191949, start_date=20240222T191952, end_date=20240222T191953
+[2024-02-22T19:19:53.089+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 311 for task extract_csv_data_task (invalid literal for int() with base 10: '968,6 km'; 2160)
+[2024-02-22T19:19:53.131+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-22T19:19:53.163+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

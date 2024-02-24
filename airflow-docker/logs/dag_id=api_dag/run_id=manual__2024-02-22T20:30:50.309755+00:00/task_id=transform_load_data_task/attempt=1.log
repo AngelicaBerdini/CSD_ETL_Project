@@ -1,0 +1,18 @@
+[2024-02-22T20:30:55.061+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: api_dag.transform_load_data_task manual__2024-02-22T20:30:50.309755+00:00 [queued]>
+[2024-02-22T20:30:55.066+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: api_dag.transform_load_data_task manual__2024-02-22T20:30:50.309755+00:00 [queued]>
+[2024-02-22T20:30:55.066+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2024-02-22T20:30:55.074+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): transform_load_data_task> on 2024-02-22 20:30:50.309755+00:00
+[2024-02-22T20:30:55.078+0000] {standard_task_runner.py:60} INFO - Started process 3816 to run task
+[2024-02-22T20:30:55.081+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'api_dag', 'transform_load_data_task', 'manual__2024-02-22T20:30:50.309755+00:00', '--job-id', '414', '--raw', '--subdir', 'DAGS_FOLDER/api_dag.py', '--cfg-path', '/tmp/tmpt7jqrk19']
+[2024-02-22T20:30:55.081+0000] {standard_task_runner.py:88} INFO - Job 414: Subtask transform_load_data_task
+[2024-02-22T20:30:55.111+0000] {task_command.py:423} INFO - Running <TaskInstance: api_dag.transform_load_data_task manual__2024-02-22T20:30:50.309755+00:00 [running]> on host 614a08523528
+[2024-02-22T20:30:55.158+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='api_dag' AIRFLOW_CTX_TASK_ID='transform_load_data_task' AIRFLOW_CTX_EXECUTION_DATE='2024-02-22T20:30:50.309755+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-02-22T20:30:50.309755+00:00'
+[2024-02-22T20:30:55.187+0000] {logging_mixin.py:188} INFO - [{'idMezzo': 32678, 'km_totali': 968.6}]
+[2024-02-22T20:30:55.187+0000] {logging_mixin.py:188} INFO - []
+[2024-02-22T20:32:45.958+0000] {local_task_job_runner.py:302} WARNING - State of this instance has been externally set to failed. Terminating instance.
+[2024-02-22T20:32:45.959+0000] {process_utils.py:131} INFO - Sending 15 to group 3816. PIDs of all processes in the group: [3816]
+[2024-02-22T20:32:45.959+0000] {process_utils.py:86} INFO - Sending the signal 15 to group 3816
+[2024-02-22T20:33:45.998+0000] {process_utils.py:149} WARNING - process psutil.Process(pid=3816, name='airflow task ru', status='sleeping', started='20:30:54') did not respond to SIGTERM. Trying SIGKILL
+[2024-02-22T20:33:46.000+0000] {process_utils.py:86} INFO - Sending the signal 9 to group 3816
+[2024-02-22T20:33:46.007+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=3816, name='airflow task ru', status='terminated', exitcode=<Negsignal.SIGKILL: -9>, started='20:30:54') (3816) terminated with exit code -9
+[2024-02-22T20:33:46.007+0000] {standard_task_runner.py:175} ERROR - Job 414 was killed before it finished (likely due to running out of memory)

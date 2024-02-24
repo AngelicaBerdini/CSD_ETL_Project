@@ -1,0 +1,45 @@
+[2024-02-24T11:13:33.090+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: api_dag.transform_load_data_task manual__2024-02-24T11:13:28.859068+00:00 [queued]>
+[2024-02-24T11:13:33.096+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: api_dag.transform_load_data_task manual__2024-02-24T11:13:28.859068+00:00 [queued]>
+[2024-02-24T11:13:33.096+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2024-02-24T11:13:33.104+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): transform_load_data_task> on 2024-02-24 11:13:28.859068+00:00
+[2024-02-24T11:13:33.109+0000] {standard_task_runner.py:60} INFO - Started process 1939 to run task
+[2024-02-24T11:13:33.111+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'api_dag', 'transform_load_data_task', 'manual__2024-02-24T11:13:28.859068+00:00', '--job-id', '576', '--raw', '--subdir', 'DAGS_FOLDER/api_dag.py', '--cfg-path', '/tmp/tmpg85baw5s']
+[2024-02-24T11:13:33.112+0000] {standard_task_runner.py:88} INFO - Job 576: Subtask transform_load_data_task
+[2024-02-24T11:13:33.141+0000] {task_command.py:423} INFO - Running <TaskInstance: api_dag.transform_load_data_task manual__2024-02-24T11:13:28.859068+00:00 [running]> on host 614a08523528
+[2024-02-24T11:13:33.190+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='api_dag' AIRFLOW_CTX_TASK_ID='transform_load_data_task' AIRFLOW_CTX_EXECUTION_DATE='2024-02-24T11:13:28.859068+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-02-24T11:13:28.859068+00:00'
+[2024-02-24T11:13:33.221+0000] {logging_mixin.py:188} INFO - [{'idMezzo': 32678}]
+[2024-02-24T11:13:33.226+0000] {logging_mixin.py:188} INFO -     Mezzo  kmTotali
+0  233015  968.6 km
+1  233015  968.6 km
+2  233015  968.6 km
+3  233015  968.6 km
+[2024-02-24T11:13:33.226+0000] {logging_mixin.py:188} INFO - 0    233015
+1    233015
+2    233015
+3    233015
+Name: Mezzo, dtype: int64
+[2024-02-24T11:13:33.228+0000] {logging_mixin.py:188} INFO -    idMezzo
+0    32678
+[2024-02-24T11:13:33.229+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/api_dag.py", line 32, in transform_data
+    merged_data = pd.merge(selected_csv, df_api, on='idMezzo', how='outer')
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/reshape/merge.py", line 148, in merge
+    op = _MergeOperation(
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/reshape/merge.py", line 737, in __init__
+    ) = self._get_merge_keys()
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/reshape/merge.py", line 1221, in _get_merge_keys
+    left_keys.append(left._get_label_or_level_values(lk))
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/generic.py", line 1778, in _get_label_or_level_values
+    raise KeyError(key)
+KeyError: 'idMezzo'
+[2024-02-24T11:13:33.236+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=api_dag, task_id=transform_load_data_task, execution_date=20240224T111328, start_date=20240224T111333, end_date=20240224T111333
+[2024-02-24T11:13:33.243+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 576 for task transform_load_data_task ('idMezzo'; 1939)
+[2024-02-24T11:13:33.284+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-24T11:13:33.311+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

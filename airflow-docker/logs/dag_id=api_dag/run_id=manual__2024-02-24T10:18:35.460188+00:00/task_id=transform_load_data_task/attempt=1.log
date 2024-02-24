@@ -1,0 +1,41 @@
+[2024-02-24T10:18:40.093+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: api_dag.transform_load_data_task manual__2024-02-24T10:18:35.460188+00:00 [queued]>
+[2024-02-24T10:18:40.098+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: api_dag.transform_load_data_task manual__2024-02-24T10:18:35.460188+00:00 [queued]>
+[2024-02-24T10:18:40.098+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2024-02-24T10:18:40.106+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): transform_load_data_task> on 2024-02-24 10:18:35.460188+00:00
+[2024-02-24T10:18:40.111+0000] {standard_task_runner.py:60} INFO - Started process 764 to run task
+[2024-02-24T10:18:40.113+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'api_dag', 'transform_load_data_task', 'manual__2024-02-24T10:18:35.460188+00:00', '--job-id', '498', '--raw', '--subdir', 'DAGS_FOLDER/api_dag.py', '--cfg-path', '/tmp/tmph8jf7myc']
+[2024-02-24T10:18:40.114+0000] {standard_task_runner.py:88} INFO - Job 498: Subtask transform_load_data_task
+[2024-02-24T10:18:40.142+0000] {task_command.py:423} INFO - Running <TaskInstance: api_dag.transform_load_data_task manual__2024-02-24T10:18:35.460188+00:00 [running]> on host 614a08523528
+[2024-02-24T10:18:40.190+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='api_dag' AIRFLOW_CTX_TASK_ID='transform_load_data_task' AIRFLOW_CTX_EXECUTION_DATE='2024-02-24T10:18:35.460188+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-02-24T10:18:35.460188+00:00'
+[2024-02-24T10:18:40.222+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/indexes/range.py", line 345, in get_loc
+    return self._range.index(new_key)
+ValueError: 1 is not in range
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/api_dag.py", line 32, in transform_data
+    selected_data = merged_data.loc[1]
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/indexing.py", line 1103, in __getitem__
+    return self._getitem_axis(maybe_callable, axis=axis)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/indexing.py", line 1343, in _getitem_axis
+    return self._get_label(key, axis=axis)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/indexing.py", line 1293, in _get_label
+    return self.obj.xs(label, axis=axis)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/generic.py", line 4095, in xs
+    loc = index.get_loc(key)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/indexes/range.py", line 347, in get_loc
+    raise KeyError(key) from err
+KeyError: 1
+[2024-02-24T10:18:40.230+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=api_dag, task_id=transform_load_data_task, execution_date=20240224T101835, start_date=20240224T101840, end_date=20240224T101840
+[2024-02-24T10:18:40.237+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 498 for task transform_load_data_task (1; 764)
+[2024-02-24T10:18:40.245+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-24T10:18:40.255+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

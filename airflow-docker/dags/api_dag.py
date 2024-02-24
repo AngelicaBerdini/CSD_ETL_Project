@@ -9,27 +9,35 @@ from airflow.providers.postgres.hooks.postgres import PostgresHook
 import pandas as pd
 from sqlalchemy import create_engine, VARCHAR
 import json
+import csv
 
-def transform_data(task_instance):
-     extracted_data= task_instance.xcom_pull(task_ids='extract_data')
-     if extracted_data:
-          transformed_data = [{'id': item['idServizio'], 'telaio': item['telaio']} for item in extracted_data]
-          df_data = pd.DataFrame(transformed_data)
-          dtypes = {'id': VARCHAR, 'telaio': VARCHAR}
+def extract_csv_data():
+    csv_path_file = './dags/record_italia.csv'
+    csv_data = pd.read_csv(csv_path_file)
+    print(csv_data.head)
+    return csv_data
+
+def transform_data(task_instance, ti):
+     extracted_data = task_instance.xcom_pull(task_ids='extract_api_task')
+     extracted_csv = ti.xcom_pull(task_ids='extract_csv_data_task')
+     if extracted_data :
+          transformed_api = [{'idMezzo': item['idMezzo']} for item in extracted_data]
+          print(transformed_api)
+          df_csv = pd.DataFrame(extracted_csv)
+          print(df_csv)
+          selected_csv = df_csv['Mezzo']
+          print(selected_csv)
+          df_api = pd.DataFrame(transformed_api)
+          print(df_api)
+          df_api_column = df_api['idMezzo'].rename('Mezzo')  # Rinomina la colonna per renderla compatibile
+          # Concatena i due DataFrame lungo la colonna 'Mezzo'
+          merged_data = pd.concat([selected_csv, df_api_column], ignore_index=True)
+          #merged_data = pd.DataFrame({'Mezzo': selected_csv, 'idMezzo': df_api['idMezzo']})
+          print(merged_data)
+          dtypes = {'Mezzo': VARCHAR}
           db = create_engine("postgresql://flnjdqme:gQeyQIGRJTOtzrwmqa78m7YqeBfeiWOz@dumbo.db.elephantsql.com/flnjdqme")
-          df_data.to_sql('automezzo', db, if_exists='replace', dtype=dtypes)
+          merged_data.to_sql('automezzo', db, if_exists='replace', dtype=dtypes)
 
-
-def extract_id(task_instance):
-     trans = task_instance.xcom_pull(task_ids='transform_data_task')
-     if trans:
-          first_dict = trans[0]
-          id_value = first_dict.get('id')
-          logging.info(f"Value extracted: {id_value}")
-          return id_value
-     else:
-          return None
-     
 default_args = {
      'owner': 'airflow',
      'start_date': datetime(2023, 1, 8)
@@ -40,25 +48,29 @@ with DAG('api_dag',
      schedule="@daily",
      catchup=False) as dag:
 
-     extract_data = SimpleHttpOperator(
-     task_id='extract_data',
+     extract_api_task = SimpleHttpOperator(
+     task_id='extract_api_task',
      http_conn_id='first_conn',
      endpoint='/owner/posizione/flotta/13127',
      method='POST',
      headers={
         'accept': 'application/json',
-        'secret': '',
+        'secret': 'EtyoDBgNKSWMfKiQXeGioRP7L',
         'X-Requested-With': 'XMLHttpRequest',
-        'X-CSRF-TOKEN': '', 
+        'X-CSRF-TOKEN': 'EtyoDBgNKSWMfKiQXeGioRP7L', 
      },
      log_response=True,
      response_filter=lambda response: json.loads(response.text) if response.text else None,
      )
-
+     extract_csv_data_task = PythonOperator(
+        task_id='extract_csv_data_task',
+        python_callable=extract_csv_data,
+        provide_context=True,
+    )
      transform_load_data_task = PythonOperator(
-          task_id='transform_data_task',
+          task_id='transform_load_data_task',
           python_callable=transform_data,
           provide_context=True
      )
-     extract_data >> transform_load_data_task
-
+     extract_api_task >> extract_csv_data_task >> transform_load_data_task
+     
