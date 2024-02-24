@@ -1,0 +1,39 @@
+[2024-02-24T16:01:19.497+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: api_dag.transform_data_task manual__2024-02-24T16:01:13.933193+00:00 [queued]>
+[2024-02-24T16:01:19.505+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: api_dag.transform_data_task manual__2024-02-24T16:01:13.933193+00:00 [queued]>
+[2024-02-24T16:01:19.505+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2024-02-24T16:01:19.542+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): transform_data_task> on 2024-02-24 16:01:13.933193+00:00
+[2024-02-24T16:01:19.555+0000] {standard_task_runner.py:60} INFO - Started process 1797 to run task
+[2024-02-24T16:01:19.559+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'api_dag', 'transform_data_task', 'manual__2024-02-24T16:01:13.933193+00:00', '--job-id', '715', '--raw', '--subdir', 'DAGS_FOLDER/api_dag.py', '--cfg-path', '/tmp/tmp9_kn37u_']
+[2024-02-24T16:01:19.560+0000] {standard_task_runner.py:88} INFO - Job 715: Subtask transform_data_task
+[2024-02-24T16:01:19.601+0000] {task_command.py:423} INFO - Running <TaskInstance: api_dag.transform_data_task manual__2024-02-24T16:01:13.933193+00:00 [running]> on host 614a08523528
+[2024-02-24T16:01:19.684+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='api_dag' AIRFLOW_CTX_TASK_ID='transform_data_task' AIRFLOW_CTX_EXECUTION_DATE='2024-02-24T16:01:13.933193+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-02-24T16:01:13.933193+00:00'
+[2024-02-24T16:01:19.749+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 3653, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 147, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 176, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7080, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: ('Mezzo', 'Km Totali (Km)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/api_dag.py", line 33, in transform_data
+    merged_data = pd.concat([df_csv1['Mezzo', 'Km Totali (Km)'], df_csv2['Veicolo', 'km']], ignore_index=True)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/frame.py", line 3761, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 3655, in get_loc
+    raise KeyError(key) from err
+KeyError: ('Mezzo', 'Km Totali (Km)')
+[2024-02-24T16:01:19.760+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=api_dag, task_id=transform_data_task, execution_date=20240224T160113, start_date=20240224T160119, end_date=20240224T160119
+[2024-02-24T16:01:19.771+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 715 for task transform_data_task (('Mezzo', 'Km Totali (Km)'); 1797)
+[2024-02-24T16:01:19.812+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-24T16:01:19.827+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

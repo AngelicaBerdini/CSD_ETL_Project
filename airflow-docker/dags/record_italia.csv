@@ -1,6 +1,12 @@
-Mezzo, kmTotali
-233015,"968.6 km"
-233015,"968.6 km"
-233015,"968.6 km"
-233015,"968.6 km"
-
+Mezzo,Indirizzo,Città,Data e Ora,Km Totali (Km),Velocità (Km/H),Evento,Sat
+233015,"Via Jurij Alekseevic Gagarin , 62100 Macerata ",Macerata,24/10/2023 07:53,"968,6 km",13 km/h,Polling,4
+233015,"Borgo Sforzacosta 2, 62100 Macerata ",Macerata,24/10/2023 07:58,"968,6 km",12 km/h,Polling,18
+233015,"Contrada Santa Lucia , 62029 Piane della Rancia ",Piane della Rancia,24/10/2023 08:03,"968,6 km",68 km/h,Polling,18
+233015,"Contrada Santa Lucia , 62029 Piane della Rancia ",Piane della Rancia,24/10/2023 08:08,"968,6 km",0 km/h,Polling,17
+233015,"Contrada Santa Lucia , 62029 Piane della Rancia ",Piane della Rancia,24/10/2023 08:13,"968,6 km",0 km/h,Polling,17
+233015,"Contrada Santa Lucia , 62029 Piane della Rancia ",Piane della Rancia,24/10/2023 08:16,"968,6 km",0 km/h,Ingresso in sleep mode,17
+233015,"Contrada Santa Lucia , 62029 Piane della Rancia ",Piane della Rancia,20/11/2023 09:56,"968,6 km",0 km/h,Polling,8
+233015,"Contrada Santa Lucia ,  Tolentino ",Tolentino,20/11/2023 10:01,"968,6 km",51 km/h,Polling,17
+233015,"43.238156, 13.387823",Tolentino,20/11/2023 10:06,"968,6 km",9 km/h,Polling,15
+233015,"43.238058, 13.387381",Tolentino,20/11/2023 10:11,"968,6 km",0 km/h,Polling,18
+233015,"43.238058, 13.387381",Tolentino,20/11/2023 10:12,"968,6 km",0 km/h,Ingresso in sleep mode,17

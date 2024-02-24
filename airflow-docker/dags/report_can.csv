@@ -1,0 +1,39 @@
+Targa,Veicolo,Km (CAN),Ore di lavoro,Tipo di carburante,Consumato,,Consumo medio,,Media Consumo,Distanza totale,Totale ore di lavoro,Totale consumato,
+GA245CH,Isuzu,0,181,,-,l,-,l/100km,-,0,7813,-,l
+GB601AM,Isuzu,"2477,8",159,,-,l,-,l/100km,-,"104651,6",5179,-,l
+GD267HT,DAF,"1931,9",171,Diesel,898,l,"46,5",l/100km,"5,3","60598,6",5597,28765,l
+GD574DK,IVECO 120EL22P,"28,2",2,Diesel,14,l,"49,6",l/100km,7,"82326,6",4905,26946,l
+GD580DK,DAF,"2041,4",173,Diesel,948,l,"46,4",l/100km,"5,5","62755,3",5466,28000,l
+GD581DK,DAF,1384,89,Diesel,505,l,"36,5",l/100km,"5,7","75055,6",5308,27563,l
+GD585DK,Isuzu,"1242,7",110,Diesel,-,l,-,l/100km,-,"47337,5",4349,-,l
+GD586DK,Isuzu,"2593,7",168,Diesel,-,l,-,l/100km,-,"74094,9",5794,-,l
+GD587DK,Isuzu,"1210,3",141,Diesel,-,l,-,l/100km,-,"44860,6",5087,-,l
+GD588DK,Isuzu,"2585,1",147,Diesel,-,l,-,l/100km,-,"89391,3",5549,-,l
+GD589DK,Isuzu,"2478,2",174,Diesel,-,l,-,l/100km,-,"79402,1",6159,-,l
+GD590DK,Isuzu,1245,154,Diesel,-,l,-,l/100km,-,"54701,2",5291,-,l
+GD591DK,Isuzu,"3480,9",167,Diesel,-,l,-,l/100km,-,121641,5865,-,l
+GD592DK,Isuzu,"2701,1",167,Diesel,-,l,-,l/100km,-,"96930,6",5788,-,l
+GD593DK,Isuzu,"1537,7",106,Diesel,-,l,-,l/100km,-,"70798,2",5043,-,l
+GD594DK,Isuzu,"1650,3",147,Diesel,-,l,-,l/100km,-,"80616,8",5112,-,l
+GD595DK,Isuzu,"2791,4",131,Diesel,-,l,-,l/100km,-,"111417,6",4649,-,l
+GE506AL,DAF,966,68,Diesel,363,l,"37,6",l/100km,"5,3","51473,3",4079,21082,l
+GE824AM,Isuzu,"2320,9",124,,-,l,-,l/100km,-,"52207,5",3406,-,l
+GE826AM,Isuzu,"2176,4",164,Diesel,-,l,-,l/100km,-,"46550,1",3422,-,l
+GE860AM,DAF,"2533,9",147,Diesel,907,l,"35,8",l/100km,"6,2","24300,1",2222,10315,l
+GF434TH,DAF,"2249,4",95,Diesel,609,l,"27,1",l/100km,"6,4","59725,4",3843,21741,l
+GF719TH,Mitsubishi,"885,1",-,Diesel,-,l,-,l/100km,-,"73905,3",-,-,l
+GF720TH,Mitsubishi,1435,-,Diesel,-,l,-,l/100km,-,"71582,2",-,-,l
+GH950XK,Isuzu,"877,8",65,,-,l,-,l/100km,-,"9405,1",864,-,l
+GL949RH,Volvo FL 250,"1644,2",158,Diesel,798,l,"48,5",l/100km,"5,1","16204,7",1572,7788,l
+GN937PP,DAF LF 210,"2619,4",121,Diesel,742,l,"28,3",l/100km,"6,1","9019,5",396,2384,l
+GN938PP,DAF LF 210,"1724,9",189,Diesel,795,l,"46,1",l/100km,"4,2","5575,8",586,2410,l
+GN939PP,DAF LF 210,"2728,2",167,Diesel,825,l,"30,2",l/100km,"4,9","8539,4",515,2556,l
+GN940PP,DAF LF 290,"1939,7",177,Diesel,886,l,"45,7",l/100km,5,"4732,1",430,2135,l
+GN942PP,DAF LF 290,"2557,9",169,Diesel,950,l,"37,1",l/100km,"5,6","6166,3",422,2345,l
+GR346BM,Isuzu P75,"1959,2",173,Diesel,-,l,-,l/100km,-,"5441,6",465,-,l
+GR347BM,Isuzu P75,"1804,3",138,,-,l,-,l/100km,-,6384,464,-,l
+GR348BM,Isuzu P75,0,133,,-,l,-,l/100km,-,"106,4",416,-,l
+GR499BM-Matr. Scarrabile 23C139,DAF CF 450,"6667,6",259,Diesel,3089,l,"46,3",l/100km,"11,9","18155,6",713,8416,l
+GR500BM-Matr. Scarrabile 23A177,DAF CF 450,"6128,7",246,Diesel,2781,l,"45,4",l/100km,"11,3","18082,6",747,8339,l
+GR722DJ,Mitsubishi,"1515,1",-,Diesel,-,l,-,l/100km,-,"101757,1",-,-,l
+GR723DJ,Mitsubishi,"1184,8",-,Diesel,-,l,-,l/100km,-,"79232,7",-,-,l

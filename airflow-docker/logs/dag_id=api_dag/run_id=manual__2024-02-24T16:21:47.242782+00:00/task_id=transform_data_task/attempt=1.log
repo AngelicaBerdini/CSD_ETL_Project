@@ -1,0 +1,30 @@
+[2024-02-24T16:21:53.171+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: api_dag.transform_data_task manual__2024-02-24T16:21:47.242782+00:00 [queued]>
+[2024-02-24T16:21:53.182+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: api_dag.transform_data_task manual__2024-02-24T16:21:47.242782+00:00 [queued]>
+[2024-02-24T16:21:53.182+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2024-02-24T16:21:53.199+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): transform_data_task> on 2024-02-24 16:21:47.242782+00:00
+[2024-02-24T16:21:53.204+0000] {standard_task_runner.py:60} INFO - Started process 2500 to run task
+[2024-02-24T16:21:53.207+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'api_dag', 'transform_data_task', 'manual__2024-02-24T16:21:47.242782+00:00', '--job-id', '754', '--raw', '--subdir', 'DAGS_FOLDER/api_dag.py', '--cfg-path', '/tmp/tmprmu5f7_2']
+[2024-02-24T16:21:53.208+0000] {standard_task_runner.py:88} INFO - Job 754: Subtask transform_data_task
+[2024-02-24T16:21:53.248+0000] {task_command.py:423} INFO - Running <TaskInstance: api_dag.transform_data_task manual__2024-02-24T16:21:47.242782+00:00 [running]> on host 614a08523528
+[2024-02-24T16:21:53.320+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='api_dag' AIRFLOW_CTX_TASK_ID='transform_data_task' AIRFLOW_CTX_EXECUTION_DATE='2024-02-24T16:21:47.242782+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-02-24T16:21:47.242782+00:00'
+[2024-02-24T16:21:53.370+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/api_dag.py", line 36, in transform_data
+    selected_csv2 = selected_csv2[['Mezzo', 'Km Totali (Km)']]
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/frame.py", line 3767, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 5877, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 5941, in _raise_if_missing
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['Km Totali (Km)'] not in index"
+[2024-02-24T16:21:53.380+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=api_dag, task_id=transform_data_task, execution_date=20240224T162147, start_date=20240224T162153, end_date=20240224T162153
+[2024-02-24T16:21:53.390+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 754 for task transform_data_task ("['Km Totali (Km)'] not in index"; 2500)
+[2024-02-24T16:21:53.420+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-24T16:21:53.445+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

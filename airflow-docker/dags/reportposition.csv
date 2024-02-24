@@ -1,0 +1,15 @@
+﻿Veicolo,Data (UTC+01:00) ,Ora (UTC+01:00) ,Nazione,Regione,Provincia,Città,Località,Indirizzo,N. Civico,Evento,Vel. (km/h),Lim. velocità superato,km,Altre info,POI,Latitudine,Longitudine,Batteria veicolo (V),Targa
+NZHE15562,19/02/2024,09:58:00,Italia,Marche,Macerata,Tolentino,,Contrada Abbadia Di Fiastra,,Track,72,No,3088,,,"43,2361","13,3968",28.32,NZHE15562
+NZHE15562,19/02/2024,09:59:00,Italia,Marche,Macerata,Tolentino,,Contrada Abbadia Di Fiastra,28,Track,91,No,3089,,,"43,2338","13,4031",28.32,NZHE15562
+NZHE15562,19/02/2024,14:35:15,Italia,Marche,Macerata,Tolentino,,Contrada Abbadia Di Fiastra,,Track,81,No,3097,,,"43,2397","13,4057",28.32,NZHE15562
+NZHE15562,19/02/2024,14:53:15,Italia,Marche,Macerata,Tolentino,,Contrada Abbadia Di Fiastra,,Track,103,No,3100,,,"43,2329","13,3811",28.33,NZHE15562
+NZHE15562,19/02/2024,14:54:15,Italia,Marche,Macerata,Tolentino,,Strada Provinciale Tolentino-abbadia Di Fiastra,,Track,117,No,3102,,,"43,2217","13,3670",28.32,NZHE15562
+NZHE15562,20/02/2024,14:32:55,Italia,Marche,Macerata,Tolentino,,Contrada Abbadia Di Fiastra,,Track,73,No,3124,,,"43,2385","13,4094",28.31,NZHE15562
+NZHE15562,20/02/2024,23:00:13,Italia,Marche,Macerata,Macerata,,Contrada Boschetto,,Track,78,No,3144,,,"43,2788","13,3883",28.28,NZHE15562
+NZHE15562,20/02/2024,23:01:13,Italia,Marche,Macerata,Macerata,,Via Galileo Galilei,71,Track,106,No,3144,,,"43,2844","13,3882",28.29,NZHE15562
+NZHE15562,20/02/2024,23:57:13,Italia,Marche,Macerata,Pollenza,,Via Alessandro Volta,,Track,76,No,3151,,,"43,2392","13,3826",28.34,NZHE15562
+NZHE15562,22/02/2024,07:47:29,Italia,Marche,Macerata,Tolentino,,Contrada Abbadia Di Fiastra,,Track,111,No,3171,,,"43,2390","13,3859",28.22,NZHE15562
+NZHE15562,22/02/2024,07:48:29,Italia,Marche,Macerata,Tolentino,,Raccordo Autostradale Tolentino-civitanova Marche,,Track,129,No,3171,,,"43,2394","13,3835",28.26,NZHE15562
+NZHE15562,23/02/2024,14:00:00,Italia,Marche,Macerata,Pollenza,,Strada Comunale Palombarette,,Track,140,No,3196,,,"43,2572","13,3913",28.28,NZHE15562
+NZHE15562,23/02/2024,23:31:52,Italia,Marche,Macerata,Tolentino,Abbadia Di Fiastra,,,Track,104,No,3206,,,"43,2220","13,4057",28.26,NZHE15562
+NZHE15562,23/02/2024,23:32:52,Italia,Marche,Macerata,Urbisaglia,Abbadia Di Fiastra,Contrada Selva,,Track,102,No,3206,,,"43,2213","13,4071",28.26,NZHE15562

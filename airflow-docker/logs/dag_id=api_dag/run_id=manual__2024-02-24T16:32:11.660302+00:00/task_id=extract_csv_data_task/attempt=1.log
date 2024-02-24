@@ -1,0 +1,66 @@
+[2024-02-24T16:32:16.106+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: api_dag.extract_csv_data_task manual__2024-02-24T16:32:11.660302+00:00 [queued]>
+[2024-02-24T16:32:16.114+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: api_dag.extract_csv_data_task manual__2024-02-24T16:32:11.660302+00:00 [queued]>
+[2024-02-24T16:32:16.115+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2024-02-24T16:32:16.128+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): extract_csv_data_task> on 2024-02-24 16:32:11.660302+00:00
+[2024-02-24T16:32:16.134+0000] {standard_task_runner.py:60} INFO - Started process 2851 to run task
+[2024-02-24T16:32:16.138+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'api_dag', 'extract_csv_data_task', 'manual__2024-02-24T16:32:11.660302+00:00', '--job-id', '777', '--raw', '--subdir', 'DAGS_FOLDER/api_dag.py', '--cfg-path', '/tmp/tmpg9kcafzm']
+[2024-02-24T16:32:16.140+0000] {standard_task_runner.py:88} INFO - Job 777: Subtask extract_csv_data_task
+[2024-02-24T16:32:16.194+0000] {task_command.py:423} INFO - Running <TaskInstance: api_dag.extract_csv_data_task manual__2024-02-24T16:32:11.660302+00:00 [running]> on host 614a08523528
+[2024-02-24T16:32:16.303+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='api_dag' AIRFLOW_CTX_TASK_ID='extract_csv_data_task' AIRFLOW_CTX_EXECUTION_DATE='2024-02-24T16:32:11.660302+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-02-24T16:32:11.660302+00:00'
+[2024-02-24T16:32:16.313+0000] {python.py:201} INFO - Done. Returned value was: (     Mezzo  ... Sat
+0   233015  ...   4
+1   233015  ...  18
+2   233015  ...  18
+3   233015  ...  17
+4   233015  ...  17
+5   233015  ...  17
+6   233015  ...   8
+7   233015  ...  17
+8   233015  ...  15
+9   233015  ...  18
+10  233015  ...  17
+
+[11 rows x 8 columns],                               Targa  ... Unnamed: 13
+0                           GA245CH  ...           l
+1                           GB601AM  ...           l
+2                           GD267HT  ...           l
+3                           GD574DK  ...           l
+4                           GD580DK  ...           l
+5                           GD581DK  ...           l
+6                           GD585DK  ...           l
+7                           GD586DK  ...           l
+8                           GD587DK  ...           l
+9                           GD588DK  ...           l
+10                          GD589DK  ...           l
+11                          GD590DK  ...           l
+12                          GD591DK  ...           l
+13                          GD592DK  ...           l
+14                          GD593DK  ...           l
+15                          GD594DK  ...           l
+16                          GD595DK  ...           l
+17                          GE506AL  ...           l
+18                          GE824AM  ...           l
+19                          GE826AM  ...           l
+20                          GE860AM  ...           l
+21                          GF434TH  ...           l
+22                          GF719TH  ...           l
+23                          GF720TH  ...           l
+24                          GH950XK  ...           l
+25                          GL949RH  ...           l
+26                          GN937PP  ...           l
+27                          GN938PP  ...           l
+28                          GN939PP  ...           l
+29                          GN940PP  ...           l
+30                          GN942PP  ...           l
+31                          GR346BM  ...           l
+32                          GR347BM  ...           l
+33                          GR348BM  ...           l
+34  GR499BM-Matr. Scarrabile 23C139  ...           l
+35  GR500BM-Matr. Scarrabile 23A177  ...           l
+36                          GR722DJ  ...           l
+37                          GR723DJ  ...           l
+
+[38 rows x 14 columns])
+[2024-02-24T16:32:16.373+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=api_dag, task_id=extract_csv_data_task, execution_date=20240224T163211, start_date=20240224T163216, end_date=20240224T163216
+[2024-02-24T16:32:16.391+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-02-24T16:32:16.408+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

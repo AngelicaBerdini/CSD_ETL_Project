@@ -12,31 +12,34 @@ import json
 import csv
 
 def extract_csv_data():
-    csv_path_file = './dags/record_italia.csv'
-    csv_data = pd.read_csv(csv_path_file)
-    print(csv_data.head)
-    return csv_data
+    csv1_path_file = './dags/record_italia.csv'
+    csv2_path_file = './dags/report_can.csv'
+    csv3_path_file = './dags/report20240224.csv'
+    csv4_path_file = './dags/reportposition.csv'
+    csv1_data = pd.read_csv(csv1_path_file)
+    csv2_data = pd.read_csv(csv2_path_file)
+    csv3_data = pd.read_csv(csv3_path_file, sep=';')
+    csv4_data = pd.read_csv(csv4_path_file)
+    return csv1_data, csv2_data, csv3_data, csv4_data
 
 def transform_data(task_instance, ti):
      extracted_data = task_instance.xcom_pull(task_ids='extract_api_task')
-     extracted_csv = ti.xcom_pull(task_ids='extract_csv_data_task')
-     if extracted_data :
-          transformed_api = [{'idMezzo': item['idMezzo']} for item in extracted_data]
-          print(transformed_api)
-          df_csv = pd.DataFrame(extracted_csv)
-          print(df_csv)
-          selected_csv = df_csv['Mezzo']
-          print(selected_csv)
-          df_api = pd.DataFrame(transformed_api)
-          print(df_api)
-          df_api_column = df_api['idMezzo'].rename('Mezzo')  # Rinomina la colonna per renderla compatibile
-          # Concatena i due DataFrame lungo la colonna 'Mezzo'
-          merged_data = pd.concat([selected_csv, df_api_column], ignore_index=True)
-          #merged_data = pd.DataFrame({'Mezzo': selected_csv, 'idMezzo': df_api['idMezzo']})
-          print(merged_data)
-          dtypes = {'Mezzo': VARCHAR}
-          db = create_engine("postgresql://flnjdqme:gQeyQIGRJTOtzrwmqa78m7YqeBfeiWOz@dumbo.db.elephantsql.com/flnjdqme")
-          merged_data.to_sql('automezzo', db, if_exists='replace', dtype=dtypes)
+     extracted_csv1, extracted_csv2, extracted_csv3, extracted_csv4 = ti.xcom_pull(task_ids='extract_csv_data_task')
+     transformed_api = [{'idMezzo': item['idMezzo'], 'km_totali': item['km_totali']} for item in extracted_data]
+     df_api = pd.DataFrame(transformed_api)
+     df_api_transformed = df_api.rename(columns={'idMezzo': 'Mezzo', 'km_totali':'Km Totali (Km)'})
+     df_csv1 = pd.DataFrame(extracted_csv1)
+     selected_csv1 = df_csv1.loc[:, ['Mezzo', 'Km Totali (Km)', 'Città','Data e Ora']].rename(columns={'Data e Ora' : 'Data (UTC+01:00)'})
+     df_csv2 = pd.DataFrame(extracted_csv2)
+     selected_csv2 = df_csv2.loc[:, ['Targa', 'Km (CAN)']].rename(columns={'Targa': 'Mezzo', 'Km (CAN)': 'Km Totali (Km)'})
+     df_csv3 = pd.DataFrame(extracted_csv3)
+     selected_csv3 = df_csv3.loc[:, ['Targa', 'km', 'Arrivo','Data (UTC+01:00)','Ora (UTC+01:00)']].rename(columns={'Targa': 'Mezzo', 'km': 'Km Totali (Km)','Arrivo':'Città'})
+     df_csv4 = pd.DataFrame(extracted_csv4)
+     selected_csv4 = df_csv4.loc[:, ['Targa', 'km', 'Città','Data (UTC+01:00) ','Ora (UTC+01:00) ']].rename(columns={'Targa': 'Mezzo', 'km': 'Km Totali (Km)', 'Data (UTC+01:00) ': 'Data (UTC+01:00)', 'Ora (UTC+01:00) ': 'Ora (UTC+01:00)'})
+     merged_data = pd.concat([selected_csv3, selected_csv4, selected_csv1, selected_csv2, df_api_transformed], ignore_index=True)
+     dtypes = {'Mezzo': VARCHAR}
+     db = create_engine("postgresql://flnjdqme:gQeyQIGRJTOtzrwmqa78m7YqeBfeiWOz@dumbo.db.elephantsql.com/flnjdqme")
+     merged_data.to_sql('automezzo', db, if_exists='replace', dtype=dtypes)
 
 default_args = {
      'owner': 'airflow',
