@@ -22,6 +22,9 @@ def extract_csv_data():
     csv4_data = pd.read_csv(csv4_path_file)
     return csv1_data, csv2_data, csv3_data, csv4_data
 
+def convert_date_format(date_str, input_format, output_format):
+    return datetime.strptime(date_str, input_format).strftime(output_format)
+
 def transform_data(task_instance, ti):
      extracted_data = task_instance.xcom_pull(task_ids='extract_api_task')
      extracted_csv1, extracted_csv2, extracted_csv3, extracted_csv4 = ti.xcom_pull(task_ids='extract_csv_data_task')
@@ -29,12 +32,18 @@ def transform_data(task_instance, ti):
      df_api = pd.DataFrame(transformed_api)
      df_api_transformed = df_api.rename(columns={'idMezzo': 'Mezzo', 'km_totali':'Km Totali (Km)'})
      df_csv1 = pd.DataFrame(extracted_csv1)
-     selected_csv1 = df_csv1.loc[:, ['Mezzo', 'Km Totali (Km)', 'Città','Data e Ora']].rename(columns={'Data e Ora' : 'Data (UTC+01:00)'})
+     df_csv1['Data'] = df_csv1['Data'].apply(
+     lambda x: convert_date_format(x, '%d/%m/%Y', '%Y-%m-%d') if pd.notnull(x) else x
+          )
+     selected_csv1 = df_csv1.loc[:, ['Mezzo', 'Km Totali (Km)', 'Città','Data', 'Ora']].rename(columns={'Data' : 'Data (UTC+01:00)', 'Ora':'Ora (UTC+01:00)'})
      df_csv2 = pd.DataFrame(extracted_csv2)
      selected_csv2 = df_csv2.loc[:, ['Targa', 'Km (CAN)']].rename(columns={'Targa': 'Mezzo', 'Km (CAN)': 'Km Totali (Km)'})
      df_csv3 = pd.DataFrame(extracted_csv3)
      selected_csv3 = df_csv3.loc[:, ['Targa', 'km', 'Arrivo','Data (UTC+01:00)','Ora (UTC+01:00)']].rename(columns={'Targa': 'Mezzo', 'km': 'Km Totali (Km)','Arrivo':'Città'})
      df_csv4 = pd.DataFrame(extracted_csv4)
+     df_csv4['Data (UTC+01:00) '] = df_csv4['Data (UTC+01:00) '].apply(
+     lambda x: convert_date_format(x, '%d/%m/%Y', '%Y-%m-%d') if pd.notnull(x) else x
+     )
      selected_csv4 = df_csv4.loc[:, ['Targa', 'km', 'Città','Data (UTC+01:00) ','Ora (UTC+01:00) ']].rename(columns={'Targa': 'Mezzo', 'km': 'Km Totali (Km)', 'Data (UTC+01:00) ': 'Data (UTC+01:00)', 'Ora (UTC+01:00) ': 'Ora (UTC+01:00)'})
      merged_data = pd.concat([selected_csv3, selected_csv4, selected_csv1, selected_csv2, df_api_transformed], ignore_index=True)
      dtypes = {'Mezzo': VARCHAR}
