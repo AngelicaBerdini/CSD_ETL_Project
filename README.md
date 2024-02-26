@@ -16,4 +16,4 @@ git clone https://github.com/AngelicaBerdini/CSD_ETL_Project.git
 cd CSD_ETL_Project
 
 # Install dependencies
-[Include the appropriate commands for your project's dependency management, e.g., pip install -r requirements.txt]
+[ pip install -r requirements.txt]
